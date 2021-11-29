@@ -28,6 +28,10 @@ if (!function_exists('wpzero_after_setup_theme')) {
 
         if( ! isset ($content_width) ) $content_width = 1100;
 
+        register_nav_menus( array(
+            'main-menu' => esc_html__( 'Main menu', 'wpzero' ),
+        ));
+
         add_theme_support('title_tag');
         add_theme_support('automatic-feed-links');
 
