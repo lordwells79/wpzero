@@ -66,6 +66,17 @@ body {
 	color: #616161;
 	margin:0;
 }
+a {
+	color:#616161;
+	-webkit-transition: color .1s linear;
+	-moz-transition: color .1s linear;
+	-o-transition: color .1s linear;
+	transition: color .1s linear;
+}
+	a:hover,
+	a:focus {
+	color:#8098D0;
+}
 /* style header e menu */
 header.header {
 	background: #f5efe1;
