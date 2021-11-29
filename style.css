@@ -13,7 +13,46 @@ Domain Path: /languages
 License: GNU General Public License v3ß or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 */
-
+/* skip to content*/
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+	transition: none;
+}
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	clip-path: none;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+}
+#content[tabindex="-1"]:focus {
+	outline: 0;
+}
+/* fine skip to content*/
 .size-auto,
 .size-full,
 .size-large,
@@ -21,6 +60,11 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 .size-thumbnail {
 	max-width: 100%;
 	height: auto;
+}
+body {
+	font-family: 'Poppins', cursive;
+	color: #616161;
+	margin:0;
 }
 /* style header e menu */
 header.header {
@@ -35,6 +79,7 @@ header.header {
 	word-break: break-all;
 }
 .logo a {
+	font-family: 'PT Serif', serif;
 	color: #616161;
 	font-size: 24px;
 	line-height: 35px;
@@ -165,3 +210,99 @@ header.header {
 }
 
 /* Fine style header e menu */
+
+/* Style header e menu Mobile*/
+
+@media screen and (min-width : 0) and (max-width : 767px) {
+	.logo {
+		text-align: center;
+		margin-bottom: 15px
+	}
+	.menu-toggle,
+	.dropdown-toggle {
+		display: block;
+		margin: 15px auto;
+		height: 30px;
+		text-align: center;
+	}
+	#main-menu {
+		display: none;
+	}
+	.header.toggled #main-menu {
+		display: block;
+	}
+	#main-menu ul li {
+		float: left;
+		width: 100%;
+	}
+	#main-menu > li > ul.children,
+	#main-menu > li > ul.sub-menu {
+		position: absolute;
+		top:-100%;
+		background: #fff;
+	}
+	#main-menu li.focus > ul.children,
+	#main-menu li.focus > ul.sub-menu ,
+	#main-menu li:hover > ul.children,
+	#main-menu li:hover > ul.sub-menu ,
+	#main-menu li:focus > ul.children,
+	#main-menu li:focus > ul.sub-menu {
+		width: 100%;
+		top:0;
+		left: 0 !important;
+		position: relative;
+	}
+	#main-menu ul {
+		padding: 0;
+		float: none;
+	}
+	#main-menu ul li a {
+		padding: 0;
+	}
+	#main-menu ul.children li a ,
+	#main-menu ul.sub-menu li a {
+		padding: 0;
+		line-height:53px;
+	}
+	#main-menu ul li.menu-item-has-children:after {
+		content: '';
+		position: absolute;
+		border: solid black;
+		right: 10px;
+		top: 50%;
+		border-width: 0 3px 3px 0;
+		display: inline-block;
+		padding: 3px;
+		-webkit-transform: translate(0,-50%) rotate(-45deg);
+		transform: translate(0,-50%) rotate(-45deg);
+	}
+	#main-menu ul.children li,
+	#main-menu ul.sub-menu li {
+		width: 100%;
+		font-size: 12px;
+		padding-left: 10px;
+	}
+	#main-menu ul li.menu-item-has-children:hover:after ,
+	#main-menu ul li.menu-item-has-children:focus:after,
+	#main-menu ul li.menu-item-has-children.focus:after {
+		top: 20px;
+		-webkit-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}
+	#main-menu a:hover,
+	#main-menu ul li a:hover,
+	#main-menu li:hover > a,
+	#main-menu a:focus,
+	#main-menu ul li a:focus,
+	#main-menu li.focus > a,
+	#main-menu li:focus > a,
+	#main-menu ul li.current-menu-item > a,
+	#main-menu ul li.current_page_item > a,
+	#main-menu ul li.current-menu-parent > a,
+	#main-menu ul li.current_page_ancestor > a,
+	#main-menu ul li.current-menu-ancestor > a {
+		background:none;
+	}
+}
+
+/* Fine Style header e menu Mobile*/
