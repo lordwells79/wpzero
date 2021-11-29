@@ -6,6 +6,8 @@
 
 if ( ! function_exists('wpzero_enqueue_scripts') ) {
     function wpzero_enqueue_scripts() {
+        wp_enqueue_style('wpzero-style', get_stylesheet_uri(), array() );
+        
         wp_enqueue_style(
             'bootstrap-grid',
             get_template_directory_uri() . '/css/bootstrap-grid.css',

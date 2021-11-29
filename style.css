@@ -22,3 +22,146 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 	max-width: 100%;
 	height: auto;
 }
+/* style header e menu */
+header.header {
+	background: #f5efe1;
+	margin-bottom:25px
+}
+.logo {
+	display: block;
+	padding: 15px 0;
+	min-height: 53px;
+	line-height: 1.4em;
+	word-break: break-all;
+}
+.logo a {
+	color: #616161;
+	font-size: 24px;
+	line-height: 35px;
+	text-decoration: none;
+	-webkit-transition: color .1s linear;
+	-moz-transition: color .1s linear;
+	-o-transition: color .1s linear;
+	transition: color .1s linear;
+}
+.logo a:hover,
+.logo a:focus {
+	color:#8098D0;
+}
+.logo span {
+	display: block;
+	font-size: 14px;
+	line-height: 18px;
+}
+#main-menu {
+	display:block;
+	position:relative;
+	float:left;
+	margin:0 auto;
+	width:100%
+}
+#main-menu ul {
+	list-style:none;
+	margin:0;
+	display:block;
+	float: right;
+	border:none;
+	text-align:left;
+}
+#main-menu ul li {
+	position:relative;
+	display:block;
+	float:left;
+	text-align:left;
+}
+#main-menu ul li a {
+	text-decoration:none;
+	display:block;
+	z-index:1;
+	padding:15px;
+	margin:0;
+	color: #616161;
+	font-size: 15px;
+	font-weight: 500;
+	-webkit-transition: color .1s linear, background-color .1s linear;
+	-moz-transition: color .1s linear, background-color .1s linear;
+	-o-transition: color .1s linear, background-color .1s linear;
+	transition: color .1s linear, background-color .1s linear;
+	position:relative;
+	line-height:53px
+}
+#main-menu a:hover,
+#main-menu ul li a:hover,
+#main-menu li:hover > a,
+#main-menu a:focus,
+#main-menu ul li a:focus,
+#main-menu li:focus > a,
+#main-menu ul li.current-menu-item > a,
+#main-menu ul li.current_page_item > a,
+#main-menu ul li.current-menu-parent > a,
+#main-menu ul li.current_page_ancestor > a,
+#main-menu ul li.current-menu-ancestor > a {
+	color:#8098D0;
+	background:#FAF8F2;
+}
+#main-menu ul.children ,
+#main-menu ul.sub-menu {
+	opacity:0;
+	position: absolute;
+	top: 83px;
+	left: -9999em;
+	background:#FAF8F2;
+	z-index:10001;
+	width:213px;
+	padding-left:0;
+	-webkit-transition: opacity 0.3s ease 0s;
+	-moz-transition: opacity 0.3s ease 0s;
+	-o-transition: opacity 0.3s ease 0s;
+	transition: opacity 0.3s ease 0s;
+}
+#main-menu ul.children li ,
+#main-menu ul.sub-menu li {
+	position:relative;
+	margin:0;
+	line-height:1.2em;
+	text-transform:none;
+	width:213px;
+	min-height: inherit;
+	margin:0;
+}
+#main-menu li li:hover > ul,
+#main-menu li li:focus > ul,
+#main-menu li li.focus > ul {
+	top:0px;
+	left: -100%;
+}
+#main-menu ul.children li a ,
+#main-menu ul.sub-menu li a {
+	text-decoration:none;
+	text-align:left;
+	display:block;
+	padding:20px 15px;
+	margin:0;
+	border:none;
+	line-height:inherit
+}
+#main-menu ul.children li ul:before ,
+#main-menu ul.sub-menu li ul:before {
+	display:none;
+}
+#main-menu li:hover > ul,
+#main-menu li:focus > ul,
+#main-menu li.focus > ul {
+	opacity:1;
+	left:calc(100% - 213px);
+}
+.menu-toggle,
+.dropdown-toggle {
+	display: none;
+}
+#main-menu ul.children li ul:before ,
+#main-menu ul.sub-menu li ul:before {
+	display:none;
+}
+
+/* Fine style header e menu */
