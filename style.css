@@ -235,7 +235,51 @@ section.category-title h1 {
 }
 /* Fine style archive */
 
+.post-thumbnail {
+	margin-top: 25px;
+	line-height: 0;
+}
 
+/* style Pagination */
+
+.pagination,
+.wpzero-pagination {
+	margin:25px 0;
+}
+.pagination .nav-links a,
+.pagination .nav-links span.current,
+.wpzero-pagination a span,
+.wpzero-pagination span.current {
+	display:inline-block;
+	text-decoration: none;
+	padding:10px 12px;
+	font-size:14px;
+	line-height:21px;
+	color:#333;
+	text-align:center;
+	vertical-align:middle;
+	cursor:pointer;
+	background:#f5efe1;
+	position:relative;
+	margin:0;
+	-webkit-transition: background-color .3s ease;
+	-moz-transition: background-color .3s ease;
+	-ms-transition: background-color .3s ease;
+	-o-transition: background-color .3s ease;
+	transition: background-color .3s ease;
+}
+.pagination .nav-links a:hover,
+.pagination .nav-links a:focus,
+.pagination .nav-links span.current,
+.wpzero-pagination span.current,
+.wpzero-pagination span.current:hover,
+.wpzero-pagination span.current:focus,
+.wpzero-pagination a span:hover,
+.wpzero-pagination a span:focus {
+	background:#FAF8F2;
+}
+
+/* Fine style Pagination */
 
 
 /* RESPONSIVE */

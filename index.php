@@ -14,6 +14,9 @@
             else:
                 esc_html_e( 'Nessun post trovato.', 'wpzero' );
             endif;
+
+             // paginazione
+             get_template_part( 'template-parts/pagination');
         ?>
         </div>
     </div>

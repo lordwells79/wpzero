@@ -1,4 +1,19 @@
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <?php
+    if ( has_post_thumbnail() ) {
+    ?>
+        <div class="post-thumbnail">
+            <a href="<?php echo esc_url(get_permalink($post->ID)); ?>" title="<?php the_title_attribute(); ?>">
+                <?php
+                $size = (is_home()) ? 'wpzero_miniatura_larga' :
+                'wpzero_miniatura_media';
+                the_post_thumbnail($size);
+                ?>
+            </a>
+        </div>
+    <?php
+    }
+    ?>
     <h3 class="post-title"><a href="<?php echo
     esc_url(get_permalink($post->ID)); ?>"><?php the_title(); ?></a></h3>
     <div class="post-meta">

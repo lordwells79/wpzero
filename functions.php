@@ -51,6 +51,21 @@ if (!function_exists('wpzero_after_setup_theme')) {
 
         add_theme_support('title_tag');
         add_theme_support('automatic-feed-links');
+        add_theme_support('post-thumbnails');
+
+		add_image_size(
+			'wpzero_miniatura_larga',
+			1110,
+			400,
+			true
+		);
+
+		add_image_size(
+			'wpzero_miniatura_media',
+			730,
+			263,
+			true
+		);
 
     }
     add_action( 'after_setup_theme', 'wpzero_after_setup_theme' );
