@@ -211,6 +211,23 @@ header.header {
 
 /* Fine style header e menu */
 
+/* style archive */
+section.category-title {
+	padding: 25px;
+	margin-top: -25px;
+	background: #F7F3E9;
+	margin-bottom: 25px;
+}
+section.category-title h1 {
+	font-size: 18px;
+	font-weight: 600;
+}
+/* Fine style archive */
+
+
+
+
+/* RESPONSIVE */
 /* Style header e menu Mobile*/
 
 @media screen and (min-width : 0) and (max-width : 767px) {
@@ -303,6 +320,11 @@ header.header {
 	#main-menu ul li.current-menu-ancestor > a {
 		background:none;
 	}
+	/* Fine Style header e menu Mobile*/
+/* style archive Mobile*/
+section.category-title h1 {
+	text-align: center;
+}
+/* Fine style archive Mobile*/
 }
 
-/* Fine Style header e menu Mobile*/

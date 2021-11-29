@@ -2,6 +2,16 @@
 
   get_header();
 ?>
+<section class="category-title">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <?php echo '<h1>' . get_the_archive_title() .
+                get_the_archive_description() . '</h1>'; ?>
+            </div>
+        </div>
+    </div>
+</section>
 <div id="content" class="container">
     <div class="row">
         <div class="col-md-12">
