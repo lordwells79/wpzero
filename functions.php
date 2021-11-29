@@ -70,3 +70,71 @@ if (!function_exists('wpzero_after_setup_theme')) {
     }
     add_action( 'after_setup_theme', 'wpzero_after_setup_theme' );
 }
+
+/*-----------------------------------------------------------------------------------*/
+/* Get post comments */
+/*-----------------------------------------------------------------------------------*/
+
+if ( ! function_exists( 'wpzero_list_comments' ) ) {
+
+	function wpzero_list_comments($comment, $args, $depth) {
+
+?>
+
+        <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
+
+            <div id="comment-<?php comment_ID(); ?>" class="comment-container">
+
+                <div class="comment-avatar">
+                    <?php echo get_avatar($comment->comment_author_email, 80, 'retro' ); ?>
+                </div>
+
+                <div class="comment-text">
+
+                    <header class="comment-author">
+
+                        <span class="author"><cite><?php printf( esc_html__('%s ha scritto:','wpzero'), get_comment_author_link());?> </cite></span>
+
+                        <time datetime="<?php echo esc_attr(get_comment_date())?>" class="comment-date">
+
+                            <a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ) ?>">
+                                <?php printf(esc_html__('%1$s at %2$s','wpzero'), get_comment_date(),  get_comment_time()) ?>
+                            </a>
+
+                            <?php
+
+                                comment_reply_link(
+                                    array_merge(
+                                        $args,
+                                        array(
+                                            'depth' => $depth,
+                                            'max_depth' => $args['max_depth']
+                                        )
+                                    )
+                                );
+
+                                edit_comment_link(esc_html__('(Modifica)', 'wpzero'));
+
+                            ?>
+
+                        </time>
+
+                    </header>
+
+                    <?php if ($comment->comment_approved == '0') : ?>
+
+                        <p><em><?php esc_html_e('Il tuo commento è in attesa di approvazione.','wpzero') ?></em></p>
+
+                    <?php endif; ?>
+
+                    <?php comment_text() ?>
+
+                </div>
+
+            </div>ß
+        </li>                
+    <?php
+
+	}
+
+}
