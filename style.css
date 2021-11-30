@@ -6,11 +6,14 @@ Description: Il mio tema è il mio primo tema WordPress.
 Author URI: local
 Version: 1.0
 Requires PHP: 5.3
-Tested up to: 5.4
-Tags: tag1,tag2,tag3 (opzionali)
+Tested up to: 5.5
+Tags: blog, news, one-column, two-columns, right-sidebar,
+custom-background, custom-colors, custom-header, custom-logo,
+custom-menu, featured-images, footer-widgets, theme-options,
+threaded-comments, translation-ready
 Text Domain: wpzero
 Domain Path: /languages
-License: GNU General Public License v3ß or later
+License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 */
 /* skip to content*/
@@ -53,14 +56,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
   outline: 0;
 }
 /* fine skip to content*/
-.size-auto,
-.size-full,
-.size-large,
-.size-medium,
-.size-thumbnail {
-  max-width: 100%;
-  height: auto;
-}
+
 body {
   font-family: "Poppins", cursive;
   color: #616161;
@@ -77,6 +73,129 @@ a:hover,
 a:focus {
   color: #8098d0;
 }
+
+.post-title,
+.post-content,
+.comment-container,
+.sidebar-widget,
+#main-menu ul li,
+#main-menu ul li a {
+  word-break: break-all;
+}
+pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #333;
+  white-space: break-spaces;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.post-content img,
+.post-thumbnail img,
+.post-content iframe,
+.post-content object,
+.post-content embed {
+  max-width: 100%;
+}
+.post-content img,
+.post-thumbnail img {
+  max-height: 100%;
+  height: auto;
+}
+
+.post-content:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.col-md-12 .type-post {
+  position: relative;
+  padding: 25px 0;
+}
+.col-md-12 .type-post:nth-of-type(even):after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 100%;
+  width: 100vw;
+  transform: translateX(-100%);
+  z-index: -1;
+  opacity: 0.7;
+  box-sizing: border-box;
+  background-color: #f5efe1;
+}
+/* Gallerie di wp */
+img.size-auto,
+img.size-full,
+img.size-large,
+img.size-medium,
+img.alignleft,
+img.alignright,
+img.aligncenter,
+.attachment img {
+  max-width: 100%;
+  height: auto;
+}
+.alignleft,
+img.alignleft {
+  display: inline;
+  float: left;
+  margin-right: 24px;
+  margin-top: 4px;
+}
+.alignright,
+img.alignright {
+  display: inline;
+  float: right;
+  margin-left: 24px;
+  margin-top: 4px;
+}
+div.aligncenter,
+img.aligncenter {
+  display: block;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  float: none;
+}
+img.alignleft,
+img.alignright,
+img.aligncenter {
+  margin-bottom: 12px;
+}
+.wp-caption {
+  background: #f1f1f1;
+  line-height: 18px;
+  margin-bottom: 25px;
+  max-width: 100% !important;
+  padding: 4px;
+  text-align: center;
+}
+.wp-caption img {
+  margin: 5px 5px 0;
+  width: 96%;
+  height: 100%;
+}
+.wp-caption p.wp-caption-text {
+  color: #888;
+  font-size: 12px;
+  margin: 5px;
+}
+
+/* Classi obbligatorie anche vuote x il check di WP*/
+.sticky {
+}
+.gallery-caption {
+}
+.bypostauthor {
+}
+/* Fine Gallerie di wp */
+
 /* style header e menu */
 header.header {
   background: #f5efe1;

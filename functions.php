@@ -73,10 +73,11 @@ if (!function_exists('wpzero_after_setup_theme')) {
             'main-menu' => esc_html__( 'Main menu', 'wpzero' ),
         ));
         
-        add_theme_support('html5', array('search-form'));
-        add_theme_support('title_tag');
+        
+        add_theme_support('title-tag');
         add_theme_support('automatic-feed-links');
         add_theme_support('post-thumbnails');
+        add_theme_support('html5', array('search-form'));
 
 		add_image_size(
 			'wpzero_miniatura_larga',
@@ -91,6 +92,9 @@ if (!function_exists('wpzero_after_setup_theme')) {
 			263,
 			true
 		);
+        add_theme_support( 'custom-background', array(
+            'default-color' => 'f3f3f3',
+        ));
 
     }
     add_action( 'after_setup_theme', 'wpzero_after_setup_theme' );

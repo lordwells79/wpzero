@@ -11,13 +11,13 @@
             <div class="col-md-12">
                 <p>
                     <?php
-                        esc_html_e('Copyright ', 'sheeba');
+                        esc_html_e('Copyright ', 'wpzero');
                         echo esc_html(get_bloginfo('name'));
-                        echo esc_html( date_i18n( __( ' Y', 'sheeba' )));
+                        echo esc_html( date_i18n( __( ' Y', 'wpzero' )));
                     ?>
                     <a href="<?php echo
                         esc_url('https://github.com/lordwells79/wpzero'); ?>" target="_blank"><?php
-                        printf( esc_html__( ' | Tema sviluppato da %s', 'WPZERO' ),
+                        printf( esc_html__( ' | Tema sviluppato da %s', 'wpzero' ),
                         'RCL' ); ?></a>
                 </p>
             </div>
