@@ -571,6 +571,69 @@ tr:nth-child(2n + 2) {
   clear: both;
 }
 /* Fine search form */
+/* Carousel*/
+.wpzero-carousel-wrapper {
+  margin-top: -25px;
+}
+.wpzero-carousel-wrapper .owl-item {
+  position: relative;
+}
+.wpzero-carousel-wrapper .owl-item h3 {
+  font-size: 14px;
+  font-weight: 600;
+  height: 50px;
+  margin: auto;
+  padding: 0 25px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  line-height: 50px;
+  position: absolute;
+  top: 50%;
+  margin-top: -25px;
+  text-align: center;
+  position: absolute;
+  background: #f5efe1;
+  max-width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-rendering: optimizeLegibility;
+}
+.wpzero-carousel-wrapper .owl-item h3 a {
+  text-decoration: none;
+}
+.wpzero-carousel-wrapper .owl-nav {
+  top: 50%;
+  transform: translate(0, -50%);
+  position: absolute;
+  width: 100%;
+}
+.wpzero-carousel-wrapper .owl-nav .owl-prev,
+.wpzero-carousel-wrapper .owl-nav .owl-next {
+  position: absolute;
+  background-color: #f5efe1 !important;
+  width: 30px;
+  height: 30px;
+  line-height: 30px !important;
+  text-align: center;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.wpzero-carousel-wrapper .owl-nav .owl-prev span,
+.wpzero-carousel-wrapper .owl-nav .owl-next span {
+  font-size: 24px;
+}
+.wpzero-carousel-wrapper .owl-nav .owl-prev {
+  left: 25px;
+}
+.wpzero-carousel-wrapper .owl-nav .owl-next {
+  right: 25px;
+}
+.wpzero-carousel-wrapper .owl-dots {
+  display: none;
+}
+/* Fine Carousel */
 
 /* RESPONSIVE */
 /* Style header e menu Mobile*/
