@@ -529,6 +529,49 @@ tr:nth-child(2n + 2) {
 }
 /* Fine style calendar */
 
+/* style search form */
+.searchform label {
+  display: block;
+}
+.searchform input[type="text"] {
+  width: calc(100% - 110px);
+  margin: 0 10px 0 0;
+  padding: 8px;
+  float: left;
+  background-color: #fff;
+  border: solid 1px #faf8f2;
+}
+.searchform input[type="submit"] {
+  background: #f5efe1;
+  border: solid 1px #f5efe1;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  position: relative;
+  float: left;
+  text-shadow: none;
+  padding: 8px 0;
+  width: 100px;
+  margin: 0 auto;
+  cursor: pointer;
+  -webkit-transition: color 0.3s ease, background-color 0.3s ease;
+  -moz-transition: color 0.3s ease, background-color 0.3s ease;
+  -o-transition: color 0.3s ease, background-color 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+.searchform input[type="submit"]:hover,
+.searchform input[type="submit"]:focus {
+  background-color: #faf8f2;
+  text-decoration: none;
+}
+.searchform:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* Fine search form */
+
 /* RESPONSIVE */
 /* Style header e menu Mobile*/
 
