@@ -19,11 +19,12 @@
                     'link_before' => '<span>',
                     'link_after' => '</span>'
                     )
-                    );
+                );
             endwhile;
             ?>
         </div>
         <div class="col-md-4">
+            <?php get_sidebar(); ?>
         </div>
     </div>
 </div>

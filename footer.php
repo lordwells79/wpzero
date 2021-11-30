@@ -1,5 +1,12 @@
 <footer>
     <div class="container">
+        <?php
+            if ( is_active_sidebar('wpzero-footer-sidebar')) {
+                echo '<div class="row sidebar-area">';
+                dynamic_sidebar('wpzero-footer-sidebar');
+                echo '</div>';
+            }
+        ?>
         <div class="row">
             <div class="col-md-12">
                 <p>
@@ -19,4 +26,5 @@
 </footer>
 <?php wp_footer();?>
 </body>
+
 </html>

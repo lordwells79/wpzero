@@ -81,27 +81,28 @@ if ( ! function_exists( 'wpzero_list_comments' ) ) {
 
 ?>
 
-        <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
+<li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
 
-            <div id="comment-<?php comment_ID(); ?>" class="comment-container">
+    <div id="comment-<?php comment_ID(); ?>" class="comment-container">
 
-                <div class="comment-avatar">
-                    <?php echo get_avatar($comment->comment_author_email, 80, 'retro' ); ?>
-                </div>
+        <div class="comment-avatar">
+            <?php echo get_avatar($comment->comment_author_email, 80, 'retro' ); ?>
+        </div>
 
-                <div class="comment-text">
+        <div class="comment-text">
 
-                    <header class="comment-author">
+            <header class="comment-author">
 
-                        <span class="author"><cite><?php printf( esc_html__('%s ha scritto:','wpzero'), get_comment_author_link());?> </cite></span>
+                <span class="author"><cite><?php printf( esc_html__('%s ha scritto:','wpzero'), get_comment_author_link());?>
+                    </cite></span>
 
-                        <time datetime="<?php echo esc_attr(get_comment_date())?>" class="comment-date">
+                <time datetime="<?php echo esc_attr(get_comment_date())?>" class="comment-date">
 
-                            <a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ) ?>">
-                                <?php printf(esc_html__('%1$s at %2$s','wpzero'), get_comment_date(),  get_comment_time()) ?>
-                            </a>
+                    <a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ) ?>">
+                        <?php printf(esc_html__('%1$s at %2$s','wpzero'), get_comment_date(),  get_comment_time()) ?>
+                    </a>
 
-                            <?php
+                    <?php
 
                                 comment_reply_link(
                                     array_merge(
@@ -117,24 +118,53 @@ if ( ! function_exists( 'wpzero_list_comments' ) ) {
 
                             ?>
 
-                        </time>
+                </time>
 
-                    </header>
+            </header>
 
-                    <?php if ($comment->comment_approved == '0') : ?>
+            <?php if ($comment->comment_approved == '0') : ?>
 
-                        <p><em><?php esc_html_e('Il tuo commento è in attesa di approvazione.','wpzero') ?></em></p>
+            <p><em><?php esc_html_e('Il tuo commento è in attesa di approvazione.','wpzero') ?></em></p>
 
-                    <?php endif; ?>
+            <?php endif; ?>
 
-                    <?php comment_text() ?>
+            <?php comment_text() ?>
 
-                </div>
+        </div>
 
-            </div>ß
-        </li>                
-    <?php
+    </div>ß
+</li>
+<?php
 
 	}
 
 }
+
+/*-----------------------------------------------------------------------------------*/
+/* Sidebar*/
+/*-----------------------------------------------------------------------------------*/
+
+function wpzero_widgets_init() {
+    register_sidebar(array(
+        'name' => esc_html__('Barra Laterale','wpzero'),
+        'id' => 'wpzero-sidebar',
+        'description' => esc_html__('La seguente barra laterale verrà
+        visualizzata di fianco a pagine e articoli.', 'wpzero'),
+        'before_widget' => '<div id="%1$s" class="sidebar-widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h4 class="title">',
+        'after_title' => '</h4>'
+    ));
+
+    register_sidebar(array(
+        'name' => esc_html__('Barra laterale nel footer','wpzero'),
+        'id' => 'wpzero-footer-sidebar',
+        'description' => esc_html__('La seguente barra laterale verrà
+        visualizzata in fondo alla pagina.', 'wpzero'),
+        'before_widget' => '<div id="%1$s" class="col-md-4 %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h4 class="title">',
+        'after_title' => '</h4>'
+    ));
+}
+add_action( 'widgets_init', 'wpzero_widgets_init' );

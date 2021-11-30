@@ -19,7 +19,7 @@
                     'link_before' => '<span>',
                     'link_after' => '</span>'
                     )
-                    );
+                );
             endwhile;
             ?>
         </div>
