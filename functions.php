@@ -52,6 +52,8 @@ if ( ! function_exists('wpzero_enqueue_scripts') ) {
             '1.0',
             TRUE
 		);
+        
+        if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
     }
     add_action( 'wp_enqueue_scripts', 'wpzero_enqueue_scripts' );
 }
@@ -161,7 +163,7 @@ if ( ! function_exists( 'wpzero_list_comments' ) ) {
 
         </div>
 
-    </div>ß
+    </div>
 </li>
 <?php
 
@@ -197,3 +199,19 @@ function wpzero_widgets_init() {
     ));
 }
 add_action( 'widgets_init', 'wpzero_widgets_init' );
+
+/*-----------------------------------------------------------------------------------*/
+/* limito le categorie nel widget*/
+/*-----------------------------------------------------------------------------------*/
+function widget_categories_args_filter ($arg) {
+
+    $args['number'] = 5;
+    $args['orderby'] = 'count';
+    $args['order']   = 'DESC';
+    $args['show_count']   = 1;
+    $args['title_li']   = '';
+
+
+    return $args;
+} 
+add_filter( 'widget_categories_args', 'widget_categories_args_filter', 10, 1 );

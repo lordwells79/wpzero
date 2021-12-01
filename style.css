@@ -191,6 +191,9 @@ img.aligncenter {
 .sticky {
 }
 .gallery-caption {
+  padding: 0 20px;
+  font-size: 14px;
+  word-break: break-word;
 }
 .bypostauthor {
 }
@@ -342,6 +345,9 @@ header.header {
 /* Fine style header e menu */
 
 /* style footer */
+footer {
+  background: #f5efe1;
+}
 footer .sidebar-area {
   background: none;
   padding: 25px 0 0 0;
@@ -356,7 +362,7 @@ footer .sidebar-area td,
 footer .sidebar-area th,
 footer .sidebar-area .title,
 footer .sidebar-area .textwidget {
-  color: #fff;
+  color: black;
 }
 /* Fine style footer */
 
@@ -537,8 +543,18 @@ h3#reply-title small,
 /* Fine style Comments */
 
 /* style Sidebar */
+
+.sidebar-area .widget_archive,
+.sidebar-area .widget_categories {
+  padding-left: 25px;
+}
+.sidebar-area .widget_calendar {
+  padding: 25px;
+}
+
 .sidebar-area {
   background: #faf8f2;
+  padding-bottom: 25px;
 }
 .sidebar-area .sidebar-widget {
   padding: 25px;
@@ -602,6 +618,7 @@ h3#reply-title small,
 }
 /* Fine style Sidebar */
 /* style Widget calendar */
+
 #wp-calendar th,
 #wp-calendar #today,
 #wp-calendar #today a {

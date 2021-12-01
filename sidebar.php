@@ -13,7 +13,7 @@
 
             the_widget(
                 'WP_Widget_Archives',
-                '',
+                'dropdown=1&count=1',
                 array(
                     'before_widget' => '<div class="post-article widget_archive">',
                     'after_widget'  => '</div>',
@@ -37,7 +37,9 @@
 
             the_widget(
                 'WP_Widget_Categories',
-                '',
+                array(
+                    'title'=> esc_html__('Migliori 5 Categorie',"wpzero")
+                ),
                 array(
                     'before_widget' => '<div class="post-article widget_categories">',
                     'after_widget'  => '</div>',

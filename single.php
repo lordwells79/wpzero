@@ -20,6 +20,7 @@
                     'link_after' => '</span>'
                     )
                 );
+                comments_template();
             endwhile;
             ?>
         </div>

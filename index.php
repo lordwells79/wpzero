@@ -9,7 +9,8 @@
             $query_args = array(
                 'post_type' => 'post',
                 'posts_per_page' => 5,
-                'meta_key' => '_thumbnail_id'
+                'meta_key' => '_thumbnail_id',
+                'post__not_in' => get_option("sticky_posts")
             );
 
             $query = new WP_Query( $query_args );
@@ -32,9 +33,8 @@
     </div>
 </div>
 <div id="content" class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <?php
+
+    <?php
             if ( have_posts() ) :
                 while ( have_posts() ) :
                     the_post();
@@ -47,9 +47,8 @@
              // paginazione
              get_template_part( 'template-parts/pagination');
         ?>
-        </div>
-    </div>
 </div>
+
 
 <?php
   get_footer();
