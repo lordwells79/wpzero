@@ -8,7 +8,7 @@
             $html = '';
             $query_args = array(
                 'post_type' => 'post',
-                'posts_per_page' => 5,
+                'posts_per_page' => get_theme_mod('wpzero_elementi_carousel', 5),
                 'meta_key' => '_thumbnail_id',
                 'post__not_in' => get_option("sticky_posts")
             );

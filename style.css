@@ -210,6 +210,8 @@ header.header {
   min-height: 53px;
   line-height: 1.4em;
   word-break: break-all;
+  display: flex;
+  align-items: center;
 }
 .logo a {
   font-family: "PT Serif", serif;
@@ -347,6 +349,7 @@ header.header {
 /* style footer */
 footer {
   background: #f5efe1;
+  margin-top: 25px;
 }
 footer .sidebar-area {
   background: none;
@@ -380,7 +383,6 @@ section.category-title h1 {
 /* Fine style archive */
 
 .post-thumbnail {
-  margin-top: 25px;
   line-height: 0;
 }
 
@@ -615,6 +617,7 @@ h3#reply-title small,
   border-radius: 0;
   width: 96%;
   padding: 5px 2%;
+  background: white;
 }
 /* Fine style Sidebar */
 /* style Widget calendar */
@@ -769,7 +772,17 @@ tr:nth-child(2n + 2) {
 .wpzero-carousel-wrapper .owl-dots {
   display: none;
 }
+.wp-block-button__link {
+  font-size: 0.9em;
+}
 /* Fine Carousel */
+
+.wp-block-cover p:not(.has-text-color) {
+  color: white;
+}
+.wp-block-button.is-style-squared .wp-block-button__link {
+  border-radius: 0;
+}
 
 /* RESPONSIVE */
 /* Style header e menu Mobile*/

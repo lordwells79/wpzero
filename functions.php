@@ -8,6 +8,50 @@ if ( ! function_exists('wpzero_enqueue_scripts') ) {
     function wpzero_enqueue_scripts() {
         wp_enqueue_style('wpzero-style', get_stylesheet_uri(), array() );
 
+
+        $css = '';
+        if ( get_header_image() ) :
+            $css .= '
+                header.header {
+                background-image: url('.esc_url(get_header_image()).');
+                -webkit-background-size: cover !important;
+                -moz-background-size: cover !important;
+                -o-background-size: cover !important;
+                background-size: cover !important;
+            }';
+        endif;
+        if ( get_header_textcolor() ) :
+            $css .= '
+            .logo a {
+                color: #'.esc_attr(get_header_textcolor()).';
+            }';
+        endif;
+
+        if ( get_theme_mod('wpzero_colore_overlay') ) :
+            $css .= '
+            a:hover,
+            a:focus,
+            .logo a:hover,
+            .logo a:focus,
+            #main-menu a:hover,
+            #main-menu ul li a:hover,
+            #main-menu li:hover > a,
+            #main-menu a:focus,
+            #main-menu ul li a:focus,
+            #main-menu li.focus > a,
+            #main-menu li:focus > a,
+            #main-menu ul li.current-menu-item > a,
+            #main-menu ul li.current_page_item > a,
+            #main-menu ul li.current-menu-parent > a,
+            #main-menu ul li.current_page_ancestor > a,
+            #main-menu ul li.current-menu-ancestor > a {
+            color: '.esc_attr(get_theme_mod('wpzero_colore_overlay')).';
+            }';
+        endif;
+        
+        wp_add_inline_style( 'wpzero-style', $css );
+
+
         $googleFontsArgs = array(
 			'family' =>	str_replace('|', '%7C','PT+Serif:700|Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i'),
 			'subset' =>	'latin,latin-ext'
@@ -91,11 +135,16 @@ if (!function_exists('wpzero_after_setup_theme')) {
 		add_image_size(
 			'wpzero_miniatura_media',
 			730,
-			263,
+			350,
 			true
 		);
+        
         add_theme_support( 'custom-background', array(
             'default-color' => 'f3f3f3',
+        ));
+        add_theme_support( 'custom-header', array(
+            'width' => 1920,
+            'height' => 90
         ));
 
     }
@@ -215,3 +264,95 @@ function widget_categories_args_filter ($arg) {
     return $args;
 } 
 add_filter( 'widget_categories_args', 'widget_categories_args_filter', 10, 1 );
+
+/*-----------------------------------------------------------------------------------*/
+/* Come gestire sezioni, impostazioni e controlli /
+/*-----------------------------------------------------------------------------------*/
+
+function wpzero_customize_register( $wp_customize ) {
+    
+    $wp_customize->add_panel('wpzero_pannello', array(
+        'title' => esc_html__( 'Pannello wpzero', 'wpzero' ),
+        
+    ));
+
+    $wp_customize->add_section('wpzero_impostazioni_carousel', 
+    array(
+        'title' => esc_html__( 'Impostazioni carousel', 'wpzero' ),
+        'panel' => 'wpzero_pannello',
+    ));
+
+    $wp_customize->add_setting( 'wpzero_elementi_carousel', array(
+        'default' => 5,
+        'sanitize_callback' => 'absint',
+    ));
+
+    $wp_customize->add_control( 'wpzero_elementi_carousel', array(
+        'type' => 'number',
+        'section' => 'wpzero_impostazioni_carousel',
+        'label' => esc_html__('Elementi carousel.', 'wpzero'),
+        'description' => esc_html__('Quanti elementi visualizzare nel
+        carousel?', 'wpzero'),
+        'input_attrs' => array(
+            'min' => 1,
+            'max' => 10,
+            'step' => 1,
+        )
+    ));
+    
+    $wp_customize->add_section('wpzero_impostazioni_contenuto',
+        array(
+            'title' => esc_html__( 'Impostazioni contenuto', 'wpzero' ),
+            'panel' => 'wpzero_pannello',
+    ));
+    $wp_customize->add_setting( 'wpzero_informazioni_articolo',
+        array(
+            'default' => true,
+            'sanitize_callback' => 'wpzero_checkbox_sanize',
+    ));
+
+    $wp_customize->add_control( 'wpzero_informazioni_articolo',
+        array(
+            'type' => 'checkbox',
+            'section' => 'wpzero_impostazioni_contenuto',
+            'label' => esc_html__('Informazioni articolo.', 'wpzero'),
+            'description' => esc_html__('Vuoi nascondere le informazioni del
+            post?.', 'wpzero'),
+    ));
+
+    $wp_customize->add_section('wpzero_impostazioni_footer', array(
+            'title' => esc_html__( 'Impostazioni footer', 'wpzero' ),
+            'panel' => 'wpzero_pannello',
+        ));
+    $wp_customize->add_setting( 'wpzero_testo_footer', array(
+            'default' => '',
+            'sanitize_callback' => 'sanitize_textarea_field',
+    ));
+
+    $wp_customize->add_control( 'wpzero_testo_footer', array(
+        'type' => 'textarea',
+        'section' => 'wpzero_impostazioni_footer',
+        'label' => esc_html__('Testo del footer.', 'wpzero'),
+        'description' => esc_html__('Inserisci qui il testo del footer.',
+        'wpzero'),
+    ));
+
+    $wp_customize->add_setting( 'wpzero_colore_overlay', array(
+        'default' => '#8098D0',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ));
+    
+    $wp_customize->add_control( 'wpzero_colore_overlay', array(
+        'type' => 'color',
+        'section' => 'colors',
+        'label' => esc_html__('Colore overlay.', 'wpzero'),
+        'description' => esc_html__('Seleziona un colore al passaggio del
+        mouse.', 'wpzero'),
+    ));
+    
+    function wpzero_checkbox_sanize( $input ) {
+        return $input ? true : false;
+    }
+}
+
+add_action( 'customize_register', 'wpzero_customize_register' );
